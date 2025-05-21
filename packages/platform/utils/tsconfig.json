@@ -6,7 +6,9 @@
     "types": ["jest"],
     "outDir": "./dist",
     "emitDecoratorMetadata": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "noEmit": true
   },
   "include": [".", "./tests", "../../types/business-days-plugin.d.ts", "../../types/window.d.ts"],
   "exclude": ["dist", "build", "**/node_modules/**", "**/*.test.*", "**/__mocks__/*", "**/__tests__/*"]
