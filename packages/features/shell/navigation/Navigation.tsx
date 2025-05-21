@@ -3,20 +3,16 @@ import { useMemo } from "react";
 
 import { useIsEmbed } from "@calcom/embed-core/embed-iframe";
 import UnconfirmedBookingBadge from "@calcom/features/bookings/UnconfirmedBookingBadge";
-import {
-  useOrgBranding,
-  type OrganizationBranding,
-} from "@calcom/features/ee/organizations/context/provider";
+import { useOrgBranding } from "@calcom/features/ee/organizations/context/provider";
 import { KBarTrigger } from "@calcom/features/kbar/Kbar";
 import classNames from "@calcom/ui/classNames";
 
-import { TeamInviteBadge } from "../TeamInviteBadge";
 import type { NavigationItemType } from "./NavigationItem";
 import { NavigationItem, MobileNavigationItem, MobileNavigationMoreItem } from "./NavigationItem";
 
 export const MORE_SEPARATOR_NAME = "more";
 
-const getNavigationItems = (orgBranding: OrganizationBranding): NavigationItemType[] => [
+const getNavigationItems = (): NavigationItemType[] => [
   {
     name: "event_types_page_title",
     href: "/event-types",
@@ -34,23 +30,23 @@ const getNavigationItems = (orgBranding: OrganizationBranding): NavigationItemTy
     href: "/availability",
     icon: "clock",
   },
-  ...(orgBranding
-    ? [
-        {
-          name: "members",
-          href: `/settings/organizations/${orgBranding.slug}/members`,
-          icon: "building",
-          moreOnMobile: true,
-        } satisfies NavigationItemType,
-      ]
-    : []),
-  {
-    name: "teams",
-    href: "/teams",
-    icon: "users",
-    badge: <TeamInviteBadge />,
-    moreOnMobile: true,
-  },
+  // ...(orgBranding
+  //   ? [
+  //       {
+  //         name: "members",
+  //         href: `/settings/organizations/${orgBranding.slug}/members`,
+  //         icon: "building",
+  //         moreOnMobile: true,
+  //       } satisfies NavigationItemType,
+  //     ]
+  //   : []),
+  // {
+  //   name: "teams",
+  //   href: "/teams",
+  //   icon: "users",
+  //   badge: <TeamInviteBadge />,
+  //   moreOnMobile: true,
+  // },
   {
     name: "apps",
     href: "/apps",
@@ -87,43 +83,43 @@ const getNavigationItems = (orgBranding: OrganizationBranding): NavigationItemTy
     href: "/more",
     icon: "ellipsis",
   },
-  {
-    name: "routing",
-    href: "/routing",
-    icon: "split",
-    isCurrent: ({ pathname }) => pathname?.startsWith("/routing") ?? false,
-    moreOnMobile: true,
-  },
-  {
-    name: "workflows",
-    href: "/workflows",
-    icon: "zap",
-    moreOnMobile: true,
-  },
-  {
-    name: "insights",
-    href: "/insights",
-    icon: "chart-bar",
-    isCurrent: ({ pathname: path, item }) => path?.startsWith(item.href) ?? false,
-    moreOnMobile: true,
-    child: [
-      {
-        name: "bookings",
-        href: "/insights",
-        isCurrent: ({ pathname: path }) => path === "/insights",
-      },
-      {
-        name: "routing",
-        href: "/insights/routing",
-        isCurrent: ({ pathname: path }) => path?.startsWith("/insights/routing") ?? false,
-      },
-      {
-        name: "router_position",
-        href: "/insights/router-position",
-        isCurrent: ({ pathname: path }) => path?.startsWith("/insights/router-position") ?? false,
-      },
-    ],
-  },
+  // {
+  //   name: "routing",
+  //   href: "/routing",
+  //   icon: "split",
+  //   isCurrent: ({ pathname }) => pathname?.startsWith("/routing") ?? false,
+  //   moreOnMobile: true,
+  // },
+  // {
+  //   name: "workflows",
+  //   href: "/workflows",
+  //   icon: "zap",
+  //   moreOnMobile: true,
+  // },
+  // {
+  //   name: "insights",
+  //   href: "/insights",
+  //   icon: "chart-bar",
+  //   isCurrent: ({ pathname: path, item }) => path?.startsWith(item.href) ?? false,
+  //   moreOnMobile: true,
+  //   child: [
+  //     {
+  //       name: "bookings",
+  //       href: "/insights",
+  //       isCurrent: ({ pathname: path }) => path === "/insights",
+  //     },
+  //     {
+  //       name: "routing",
+  //       href: "/insights/routing",
+  //       isCurrent: ({ pathname: path }) => path?.startsWith("/insights/routing") ?? false,
+  //     },
+  //     {
+  //       name: "router_position",
+  //       href: "/insights/router-position",
+  //       isCurrent: ({ pathname: path }) => path?.startsWith("/insights/router-position") ?? false,
+  //     },
+  //   ],
+  // },
 ];
 
 const platformNavigationItems: NavigationItemType[] = [
@@ -179,7 +175,7 @@ const platformNavigationItems: NavigationItemType[] = [
 const useNavigationItems = (isPlatformNavigation = false) => {
   const orgBranding = useOrgBranding();
   return useMemo(() => {
-    const items = !isPlatformNavigation ? getNavigationItems(orgBranding) : platformNavigationItems;
+    const items = !isPlatformNavigation ? getNavigationItems() : platformNavigationItems;
 
     const desktopNavigationItems = items.filter((item) => item.name !== MORE_SEPARATOR_NAME);
     const mobileNavigationBottomItems = items.filter(

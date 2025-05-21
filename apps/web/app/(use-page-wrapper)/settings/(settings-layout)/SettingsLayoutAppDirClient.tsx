@@ -51,84 +51,84 @@ const getTabs = (orgBranding: OrganizationBranding | null) => {
       icon: "key",
       children: [
         { name: "password", href: "/settings/security/password" },
-        { name: "impersonation", href: "/settings/security/impersonation" },
-        { name: "2fa_auth", href: "/settings/security/two-factor-auth" },
+        // { name: "impersonation", href: "/settings/security/impersonation" },
+        // { name: "2fa_auth", href: "/settings/security/two-factor-auth" },
       ],
     },
-    {
-      name: "billing",
-      href: "/settings/billing",
-      icon: "credit-card",
-      children: [{ name: "manage_billing", href: "/settings/billing" }],
-    },
-    {
-      name: "developer",
-      href: "/settings/developer",
-      icon: "terminal",
-      children: [
-        //
-        { name: "webhooks", href: "/settings/developer/webhooks" },
-        { name: "api_keys", href: "/settings/developer/api-keys" },
-        { name: "admin_api", href: "/settings/organizations/admin-api" },
-        // TODO: Add profile level for embeds
-        // { name: "embeds", href: "/v2/settings/developer/embeds" },
-      ],
-    },
-    {
-      name: "organization",
-      href: "/settings/organizations",
-      children: [
-        {
-          name: "profile",
-          href: "/settings/organizations/profile",
-        },
-        {
-          name: "general",
-          href: "/settings/organizations/general",
-        },
-        ...(orgBranding
-          ? [
-              {
-                name: "members",
-                href: `/settings/organizations/${orgBranding.slug}/members`,
-              },
-            ]
-          : []),
-        {
-          name: "privacy",
-          href: "/settings/organizations/privacy",
-        },
-        {
-          name: "billing",
-          href: "/settings/organizations/billing",
-        },
-        { name: "OAuth Clients", href: "/settings/organizations/platform/oauth-clients" },
-        {
-          name: "SSO",
-          href: "/settings/organizations/sso",
-        },
-        {
-          name: "directory_sync",
-          href: "/settings/organizations/dsync",
-        },
-        {
-          name: "admin_api",
-          href: "https://cal.com/docs/enterprise-features/api/api-reference/bookings#admin-access",
-        },
-      ],
-    },
-    {
-      name: "teams",
-      href: "/teams",
-      icon: "users",
-      children: [],
-    },
-    {
-      name: "other_teams",
-      href: "/settings/organizations/teams/other",
-      icon: "users",
-      children: [],
-    },
+    // {
+    //   name: "billing",
+    //   href: "/settings/billing",
+    //   icon: "credit-card",
+    //   children: [{ name: "manage_billing", href: "/settings/billing" }],
+    // },
+    // {
+    //   name: "developer",
+    //   href: "/settings/developer",
+    //   icon: "terminal",
+    //   children: [
+    //     //
+    //     { name: "webhooks", href: "/settings/developer/webhooks" },
+    //     { name: "api_keys", href: "/settings/developer/api-keys" },
+    //     { name: "admin_api", href: "/settings/organizations/admin-api" },
+    //     // TODO: Add profile level for embeds
+    //     // { name: "embeds", href: "/v2/settings/developer/embeds" },
+    //   ],
+    // },
+    // {
+    //   name: "organization",
+    //   href: "/settings/organizations",
+    //   children: [
+    //     {
+    //       name: "profile",
+    //       href: "/settings/organizations/profile",
+    //     },
+    //     {
+    //       name: "general",
+    //       href: "/settings/organizations/general",
+    //     },
+    //     ...(orgBranding
+    //       ? [
+    //           {
+    //             name: "members",
+    //             href: `/settings/organizations/${orgBranding.slug}/members`,
+    //           },
+    //         ]
+    //       : []),
+    //     {
+    //       name: "privacy",
+    //       href: "/settings/organizations/privacy",
+    //     },
+    //     {
+    //       name: "billing",
+    //       href: "/settings/organizations/billing",
+    //     },
+    //     { name: "OAuth Clients", href: "/settings/organizations/platform/oauth-clients" },
+    //     {
+    //       name: "SSO",
+    //       href: "/settings/organizations/sso",
+    //     },
+    //     {
+    //       name: "directory_sync",
+    //       href: "/settings/organizations/dsync",
+    //     },
+    //     {
+    //       name: "admin_api",
+    //       href: "https://cal.com/docs/enterprise-features/api/api-reference/bookings#admin-access",
+    //     },
+    //   ],
+    // },
+    // {
+    //   name: "teams",
+    //   href: "/teams",
+    //   icon: "users",
+    //   children: [],
+    // },
+    // {
+    //   name: "other_teams",
+    //   href: "/settings/organizations/teams/other",
+    //   icon: "users",
+    //   children: [],
+    // },
     {
       name: "admin",
       href: "/settings/admin",
@@ -136,21 +136,21 @@ const getTabs = (orgBranding: OrganizationBranding | null) => {
       children: [
         //
         { name: "features", href: "/settings/admin/flags" },
-        { name: "license", href: "/auth/setup?step=1" },
-        { name: "impersonation", href: "/settings/admin/impersonation" },
+        // { name: "license", href: "/auth/setup?step=1" },
+        // { name: "impersonation", href: "/settings/admin/impersonation" },
         { name: "apps", href: "/settings/admin/apps/calendar" },
-        { name: "users", href: "/settings/admin/users" },
-        { name: "organizations", href: "/settings/admin/organizations" },
-        { name: "lockedSMS", href: "/settings/admin/lockedSMS" },
+        // { name: "users", href: "/settings/admin/users" },
+        // { name: "organizations", href: "/settings/admin/organizations" },
+        // { name: "lockedSMS", href: "/settings/admin/lockedSMS" },
         { name: "oAuth", href: "/settings/admin/oAuth" },
-        { name: "Workspace Platforms", href: "/settings/admin/workspace-platforms" },
+        // { name: "Workspace Platforms", href: "/settings/admin/workspace-platforms" },
       ],
     },
   ];
 
   tabs.find((tab) => {
     if (tab.name === "security" && !HOSTED_CAL_FEATURES) {
-      tab.children?.push({ name: "sso_configuration", href: "/settings/security/sso" });
+      // tab.children?.push({ name: "sso_configuration", href: "/settings/security/sso" });
       // TODO: Enable dsync for self hosters
       // tab.children?.push({ name: "directory_sync", href: "/settings/security/dsync" });
     }

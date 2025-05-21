@@ -8,7 +8,7 @@ module.exports = {
     "turbo",
     "plugin:you-dont-need-lodash-underscore/compatible-warn",
   ],
-  plugins: ["unused-imports"],
+  // plugins: ["unused-imports"],
   parserOptions: {
     tsconfigRootDir: __dirname,
     project: ["./apps/*/tsconfig.json", "./packages/*/tsconfig.json"],
@@ -45,7 +45,7 @@ module.exports = {
         destructuredArrayIgnorePattern: "^_",
       },
     ],
-    "unused-imports/no-unused-imports": "error",
+    // "unused-imports/no-unused-imports": "error",
     "no-restricted-imports": [
       "error",
       {

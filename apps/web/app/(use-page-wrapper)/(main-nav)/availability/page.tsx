@@ -47,7 +47,7 @@ const Page = async ({ searchParams: _searchParams }: PageProps) => {
         <AvailabilityCTA
           toggleGroupOptions={[
             { value: "mine", label: t("my_availability") },
-            ...(canViewTeamAvailability ? [{ value: "team", label: t("team_availability") }] : []),
+            // ...(canViewTeamAvailability ? [{ value: "team", label: t("team_availability") }] : []),
           ]}
         />
       }>

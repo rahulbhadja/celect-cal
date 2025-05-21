@@ -134,7 +134,6 @@ export function SideBar({ bannersHeight, user }: SideBarProps) {
               <KBarTrigger />
             </div>
           </header>
-          {/* logo icon for tablet */}
           <Link href="/event-types" className="text-center md:inline lg:hidden">
             <Logo small icon />
           </Link>
@@ -143,7 +142,7 @@ export function SideBar({ bannersHeight, user }: SideBarProps) {
 
         {!isPlatformPages && (
           <div>
-            <Tips />
+            {/* <Tips /> */}
             {bottomNavItems.map((item, index) => (
               <Tooltip side="right" content={t(item.name)} className="lg:hidden" key={item.name}>
                 <ButtonOrLink

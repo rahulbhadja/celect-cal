@@ -4,7 +4,6 @@ import type { ChangeEventHandler } from "react";
 import { useState } from "react";
 
 import { AllApps } from "@calcom/features/apps/components/AllApps";
-import { AppStoreCategories } from "@calcom/features/apps/components/Categories";
 import { PopularAppsSlider } from "@calcom/features/apps/components/PopularAppsSlider";
 import { RecentAppsSlider } from "@calcom/features/apps/components/RecentAppsSlider";
 import { useLocale } from "@calcom/lib/hooks/useLocale";
@@ -85,7 +84,7 @@ export default function Apps({ isAdmin, categories, appStore, userAdminTeams }: 
       <div className="flex flex-col gap-y-8">
         {!searchText && (
           <>
-            <AppStoreCategories categories={categories} />
+            {/* <AppStoreCategories categories={categories} /> */}
             <PopularAppsSlider items={appStore} />
             <RecentAppsSlider items={appStore} />
           </>
