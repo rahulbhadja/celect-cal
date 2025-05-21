@@ -3802,6 +3802,7 @@ __metadata:
     "@types/dompurify": ^3.0.5
     "@types/glidejs__glide": ^3.4.2
     "@types/jsdom": ^21.1.3
+    "@types/jsonwebtoken": ^9.0.0
     "@types/lodash": ^4.14.182
     "@types/markdown-it": ^12.2.3
     "@types/md5": ^2.3.2
@@ -14810,6 +14811,16 @@ __metadata:
   version: 0.0.29
   resolution: "@types/json5@npm:0.0.29"
   checksum: e60b153664572116dfea673c5bda7778dbff150498f44f998e34b5886d8afc47f16799280e4b6e241c0472aef1bc36add771c569c68fc5125fc2ae519a3eb9ac
+  languageName: node
+  linkType: hard
+
+"@types/jsonwebtoken@npm:^9.0.0":
+  version: 9.0.9
+  resolution: "@types/jsonwebtoken@npm:9.0.9"
+  dependencies:
+    "@types/ms": "*"
+    "@types/node": "*"
+  checksum: 9d564fc09fc83f66e319754dee0b039ae23f28fc38a9227c35283e69311ddf5a7493a060c7f956df8cd856416747c515b51fec20b8656865eacebf23b3c6bc62
   languageName: node
   linkType: hard
 

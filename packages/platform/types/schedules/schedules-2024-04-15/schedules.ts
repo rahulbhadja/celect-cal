@@ -78,7 +78,17 @@ export class UpdateScheduleInput_2024_04_15 {
   @DocsProperty()
   @IsArray()
   @ApiProperty({
-    type: [[ScheduleItem]],
+    type: "array",
+    items: {
+      type: "array",
+      items: {
+        type: "object",
+        properties: {
+          start: { type: "string", format: "date-time" },
+          end: { type: "string", format: "date-time" },
+        },
+      },
+    },
     example: [
       [],
       [{ start: "2022-01-01T00:00:00.000Z", end: "2022-01-02T00:00:00.000Z" }],
@@ -88,7 +98,6 @@ export class UpdateScheduleInput_2024_04_15 {
       [],
       [],
     ],
-    isArray: true,
   })
   schedule?: ScheduleItem[][];
 
@@ -98,17 +107,15 @@ export class UpdateScheduleInput_2024_04_15 {
   @IsArray()
   @DocsProperty()
   @ApiProperty({
-    type: [DateOverride],
-    example: [
-      [],
-      [{ start: "2022-01-01T00:00:00.000Z", end: "2022-01-02T00:00:00.000Z" }],
-      [],
-      [],
-      [],
-      [],
-      [],
-    ],
-    isArray: true,
+    type: "array",
+    items: {
+      type: "object",
+      properties: {
+        start: { type: "string", format: "date-time" },
+        end: { type: "string", format: "date-time" },
+      },
+    },
+    example: [{ start: "2022-01-01T00:00:00.000Z", end: "2022-01-02T00:00:00.000Z" }],
     required: false,
   })
   dateOverrides?: DateOverride[];

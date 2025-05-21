@@ -1,6 +1,15 @@
-import { stringify } from "querystring";
-
 import { WEBSITE_URL } from "@calcom/lib/constants";
+
+// Replace querystring with URLSearchParams for browser compatibility
+function stringify(obj: Record<string, unknown>): string {
+  const params = new URLSearchParams();
+  Object.entries(obj).forEach(([key, value]) => {
+    if (value !== undefined && value !== null) {
+      params.append(key, String(value));
+    }
+  });
+  return params.toString();
+}
 
 export type Maybe<T> = T | undefined | null;
 
